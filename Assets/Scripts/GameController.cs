@@ -3,13 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class GameController : MonoBehaviour
 {
+    public GameObject[] CarPrefab;
 
     void Start()
     {
-       
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player)
+        {
+            int carIndex = PlayerPrefs.GetInt("CurrentCar");
+            GameObject car = Instantiate(CarPrefab[carIndex]);
+            car.transform.SetParent(player.transform);
+            car.transform.localPosition = new Vector3(0, 0, 0);
+
+
+
+        }
     }
 
     public void StartButton()

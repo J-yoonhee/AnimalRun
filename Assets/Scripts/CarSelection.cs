@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CarSelection : MonoBehaviour
 {
@@ -9,23 +10,46 @@ public class CarSelection : MonoBehaviour
 
     private void Awake()
     {
-        SelectCar(0);
+        currentCar = 0;
+        ChangeCar(0);
+        // SelectCar(0);
     }
 
-    private void SelectCar(int _index)
+    public void SelectCar(int _index)
     {
-        previousButton.interactable = (_index != 0);
-        nextButton.interactable = (_index != transform.childCount-1);
+        /*
 
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            transform.GetChild(i).gameObject.SetActive(i == _index);
-        }
+        */
+
+        PlayerPrefs.SetInt("CurrentCar", currentCar);
+        GoLobby();
     }
 
     public void ChangeCar(int _change)
     {
         currentCar += _change;
-        SelectCar(currentCar);
+        if (currentCar < 0)
+        {
+            currentCar = 4;
+        }
+        else if (currentCar > 4)
+        {
+            currentCar = 0;
+        }
+
+        previousButton.interactable = (currentCar != 0);
+        nextButton.interactable = (currentCar != transform.childCount - 1);
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(i == currentCar);
+        }
+
+        //SelectCar(currentCar);
+    }
+
+    public void GoLobby()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 }
