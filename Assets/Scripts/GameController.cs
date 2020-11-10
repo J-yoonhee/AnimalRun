@@ -75,4 +75,14 @@ public class GameController : MonoBehaviour
     {
         SceneManager.LoadScene("SelectScene");
     }
+
+    public void StageBackButton()
+    {
+        SceneManager.LoadScene("StageScene");
+    }
+
+    public void TutorialBackButton()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
 }

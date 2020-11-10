@@ -150,6 +150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e870d6ce8fa668841bcd6b94073bb3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CarPrefab:
+  - {fileID: 1042753228856018, guid: 638583a177564da19f00393d12d53375, type: 3}
+  - {fileID: 1916075801608800, guid: 855279fbf71944a9bea4564012b0eef2, type: 3}
+  - {fileID: 1514781368367630, guid: d13ce7ccf91b4953b5dd864e3b497f2a, type: 3}
+  - {fileID: 1795941953813262, guid: b8c53b8156d345fda2ba96b7855e2178, type: 3}
+  - {fileID: 1277140579145558, guid: b705f1fe9b73488692d4e7e6c758d71c, type: 3}
 --- !u!4 &114636063
 Transform:
   m_ObjectHideFlags: 0
