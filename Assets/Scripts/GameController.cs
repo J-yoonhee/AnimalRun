@@ -49,8 +49,10 @@ public class GameController : MonoBehaviour
 
                 skipButton.onClick.AddListener(() =>
                 {
-                    videoscreen.gameObject.SetActive(false);
-                    video.Stop();
+                    /*videoscreen.gameObject.SetActive(false);
+                    video.Stop();*/
+
+                    SceneManager.LoadScene("MainScene");
                 });
             }
              
