@@ -1132,7 +1132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   video: {fileID: 1041406803}
   videoscreen: {fileID: 1103868357}
-  skipButton: {fileID: 1935735445}
+  skipButton: {fileID: 1432058874}
   CarPrefab:
   - {fileID: 1042753228856018, guid: 638583a177564da19f00393d12d53375, type: 3}
   - {fileID: 1916075801608800, guid: 855279fbf71944a9bea4564012b0eef2, type: 3}
@@ -1142,7 +1142,7 @@ MonoBehaviour:
   start_text: {fileID: 953359703}
   Stage:
   - {fileID: 3801021749333807665, guid: d64b91f01e6afab4db7da225e87762eb, type: 3}
-  - {fileID: 8040601520492615780, guid: 5d8896231e2200646b9ec411777fa3da, type: 3}
+  - {fileID: 3801021749333807665, guid: d64b91f01e6afab4db7da225e87762eb, type: 3}
   - {fileID: 2744185261576317759, guid: d3ebde749aa39574898d667e80b5a6d7, type: 3}
   - {fileID: 3668446533072514892, guid: 8a3c22cca200a4b498cc913b87ab0dd5, type: 3}
   - {fileID: 1783646744928854453, guid: 2571719ef89cf444792b148c4c76baaf, type: 3}
@@ -1229,7 +1229,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Skip
+  m_Text: Back
 --- !u!222 &884900612
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1457,7 +1457,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041406802}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 5beeb20e1aa714845ba493f3e94a41d4, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: d62844f35ffcac24f9c2941baaf0fd8c, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1572,7 +1572,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0002746582, y: -0.00068665}
-  m_SizeDelta: {x: 480.00024, y: 799.99927}
+  m_SizeDelta: {x: 480.00024, y: 464.98}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1162101659
 GameObject:
