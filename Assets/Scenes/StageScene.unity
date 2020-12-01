@@ -1005,7 +1005,7 @@ MonoBehaviour:
   music2: {fileID: 1242086772}
   bgm:
   - {fileID: 8300000, guid: e9a30b63e7f9c654aa87ba5645d70ff5, type: 3}
-  - {fileID: 8300000, guid: 66c10b440538a7c459dc97efd17389c8, type: 3}
+  - {fileID: 8300000, guid: e9a30b63e7f9c654aa87ba5645d70ff5, type: 3}
   - {fileID: 8300000, guid: 1ff4d8b275a04bd409052ade3666f3dd, type: 3}
   - {fileID: 8300000, guid: 5727561a21614324f98c7240a26acbac, type: 3}
   - {fileID: 8300000, guid: 1e10bf031091cc64ba75807ee7f17621, type: 3}
@@ -1146,7 +1146,7 @@ MonoBehaviour:
   start_text: {fileID: 953359703}
   Stage:
   - {fileID: 3801021749333807665, guid: d64b91f01e6afab4db7da225e87762eb, type: 3}
-  - {fileID: 8040601520492615780, guid: 5d8896231e2200646b9ec411777fa3da, type: 3}
+  - {fileID: 3801021749333807665, guid: d64b91f01e6afab4db7da225e87762eb, type: 3}
   - {fileID: 2744185261576317759, guid: d3ebde749aa39574898d667e80b5a6d7, type: 3}
   - {fileID: 3668446533072514892, guid: 8a3c22cca200a4b498cc913b87ab0dd5, type: 3}
   - {fileID: 1783646744928854453, guid: 2571719ef89cf444792b148c4c76baaf, type: 3}
