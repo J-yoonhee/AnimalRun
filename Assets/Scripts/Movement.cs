@@ -28,8 +28,8 @@ public class Movement : MonoBehaviour
     //public static bool isResume = false;
     public static bool isUIChange = false;
     public static bool isDestroy = false;
-    
-    
+
+
     void Start()
     {
         move_speed = 5.0f;
@@ -41,12 +41,12 @@ public class Movement : MonoBehaviour
         isPaused = false;
         music.gameObject.SetActive(false); //음악  isMusicSet = false
 
-        if(UIManager.isTutorial == true)
+        if (UIManager.isTutorial == true)
         {
             music2.clip = bgm[0];
         }
 
-        if(UIManager.isStage == true && UIManager.isStage_1 == true)
+        if (UIManager.isStage == true && UIManager.isStage_1 == true)
         {
             music2.clip = bgm[1];
         }
@@ -64,10 +64,10 @@ public class Movement : MonoBehaviour
         }
     }
 
-    
+
     void Update()
     {
-        
+
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) //첫 터치시 Start텍스트가 비활성화 되고 게임과 음악이 활성화됨
         {
             StartText.gameObject.SetActive(false);
@@ -76,7 +76,7 @@ public class Movement : MonoBehaviour
         }
         if (isAlive == true && Started == true)
         {
-            if(isPaused == false)
+            if (isPaused == false)
             {
                 onGround = isGrounded();
                 Player.transform.Translate(Vector3.forward * move_speed * Time.deltaTime);
@@ -105,7 +105,7 @@ public class Movement : MonoBehaviour
                     }
                 }
             }
-            
+
         }
     }
 
@@ -116,14 +116,14 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision) // 장애물과의 충돌여부 
     {
-        if(collision.gameObject.tag == "obstacle") // Player가 벽에 부딪히면 모든행동과 음악이 멈추고 재시작버튼이 활성화됨
+        if (collision.gameObject.tag == "obstacle") // Player가 벽에 부딪히면 모든행동과 음악이 멈추고 재시작버튼이 활성화됨
         {
             isAlive = false;
             Started = false;
             music2.Pause(); // isMusicStop = true
             RestartText.gameObject.SetActive(true);
             RestartButton.gameObject.SetActive(true);
-           
+
         }
     }
 
@@ -135,7 +135,7 @@ public class Movement : MonoBehaviour
 
     public void Pause()
     {
-        
+
         isPaused = true;
         PauseMenu.gameObject.SetActive(true);
         music2.Pause(); // 음악 isMusicStop = true
@@ -143,7 +143,7 @@ public class Movement : MonoBehaviour
 
     public void Resume()
     {
-        
+
         isPaused = false;
         //isResume = true;
         PauseMenu.gameObject.SetActive(false);
@@ -151,7 +151,7 @@ public class Movement : MonoBehaviour
 
         if (isAlive == false && Started == false)
         {
-         music2.Pause(); // 음악 isMusicStop = true
+            music2.Pause(); // 음악 isMusicStop = true
         }
     }
 
@@ -169,12 +169,4 @@ public class Movement : MonoBehaviour
         Debug.Log("튜토리얼에서 Main화면으로 전환");
         isDestroy = true;
     }
-
-    public void NextButton() // Player에 옮기기
-    {
-        SceneManager.LoadScene("StageScene");
-        isDestroy = true;
-    }
-
 }
-

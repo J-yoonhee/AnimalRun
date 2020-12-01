@@ -8,15 +8,20 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    /*public static bool isGo = false;
-    public static bool isStop = false;
+    
+    public static bool isTutorialNext = false;
+    public static bool isStageNext = false;
 
-    private float countdown = 3;
-    public Text time;*/
     public VideoPlayer video;
-    public GameObject videoscreen;
-    public Button skipButton;
 
+    public GameObject videoscreen;
+    public GameObject Endscreen;
+    public GameObject TutorialEndscreen;
+
+    public Button skipButton;
+    public Button stageNextButton;
+    public Button tutorialNextButton;
+    
     public GameObject[] CarPrefab;
     public Text start_text;
     public List<GameObject> Stage = new List<GameObject>();
@@ -25,11 +30,8 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        /*isGo = true;
-        isStop = false;*/
-        videoscreen.gameObject.SetActive(false);
-        
 
+        
         GameObject player = GameObject.FindWithTag("Player");
         if (player)
         {
@@ -37,8 +39,22 @@ public class GameController : MonoBehaviour
             GameObject car = Instantiate(CarPrefab[carIndex]);
             car.transform.SetParent(player.transform);
             car.transform.localPosition = new Vector3(0, 0, 0);
-
         }
+
+        stageNextButton.onClick.AddListener(() => // 클리어하고 스테이지화면으로 돌아감
+        { 
+            SceneManager.LoadScene("MainScene");
+            Debug.Log("stagenext");
+            isStageNext = true;
+        });
+
+        tutorialNextButton.onClick.AddListener(() => // 클리어하고 메인화면으로 돌아감
+        {         
+            SceneManager.LoadScene("MainScene");
+            Debug.Log("tutorialnext");
+            isTutorialNext = true;        
+        });
+
 
         if (UIManager.isTutorial == true)
         {
@@ -82,27 +98,6 @@ public class GameController : MonoBehaviour
                 Instantiate(Stage[4]);
             }
         }
-    }
-
-    void Update()
-    {
-        /*if(Movement.isResume == true)
-        {
-            time.text = countdown.ToString("0");
-            if (countdown > 1)
-            {
-                isGo = false;
-                isStop = true;
-                countdown -= Time.deltaTime;
-                time.gameObject.SetActive(true);
-            }
-            else // countdown이 0이 될 때
-            {
-                isGo = true;
-                isStop = false;
-                Movement.isResume = false;
-                time.gameObject.SetActive(false);
-            }
-        }*/
-    }
+      
+    }   
 }

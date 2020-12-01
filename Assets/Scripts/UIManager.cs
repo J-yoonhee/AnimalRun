@@ -134,6 +134,20 @@ public class UIManager : MonoBehaviour
             Debug.Log("CharacterSelect 화면에서 Select화면으로 전환");
         }
 
+        if(GameController.isStageNext == true)
+        {
+            SelectUI.gameObject.SetActive(true);
+            MainUI.gameObject.SetActive(false);
+            Debug.Log("Select화면으로 전환");
+        }
+
+        if(GameController.isTutorialNext == true)
+        {
+            SelectUI.gameObject.SetActive(false);
+            MainUI.gameObject.SetActive(true);
+            Debug.Log("Main화면으로 전환");
+        }
+
     }
 
     void Update()
