@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
+    public ParticleSystem particle;
     public GameObject Player;
     private int loopCount = 1;
     private float move_speed = 5.0f;
@@ -32,6 +33,7 @@ public class Movement : MonoBehaviour
 
     void Start()
     {
+        particle.gameObject.SetActive(false);
         move_speed = 5.0f;
         loopCount = 1;
         onGround = true;
@@ -67,27 +69,35 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if(End_screen.isTrigger == true)
+        {
+            particle.Stop();
+        }
 
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) //첫 터치시 Start텍스트가 비활성화 되고 게임과 음악이 활성화됨
         {
+            particle.gameObject.SetActive(true);
             StartText.gameObject.SetActive(false);
             Started = true;
             music.gameObject.SetActive(true); // 음악 isMusicSet = true
         }
         if (isAlive == true && Started == true)
         {
+            
             if (isPaused == false)
             {
+                
                 onGround = isGrounded();
                 Player.transform.Translate(Vector3.forward * move_speed * Time.deltaTime);
                 pos = Player.transform.position; //Player 포지션 설정
 
                 if (onGround == true)
                 {
-                    GameObject Player2 = GameObject.CreatePrimitive(PrimitiveType.Cube); //PlayerClone 오브젝트 생성
+                    
+                    /*GameObject Player2 = GameObject.CreatePrimitive(PrimitiveType.Cube); //PlayerClone 오브젝트 생성
                     Player2.transform.position = pos; //PlayerClone 포지션 설정
                     Player2.GetComponent<MeshRenderer>().material = mat; //PlayerClone 색 설정
-                    Player2.GetComponent<BoxCollider>().isTrigger = true; // Player와 Clone이 충돌하지 않도록 함
+                    Player2.GetComponent<BoxCollider>().isTrigger = true; // Player와 Clone이 충돌하지 않도록 함*/
 
 
                     if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject()) // 클릭시 회전
@@ -123,6 +133,8 @@ public class Movement : MonoBehaviour
             music2.Pause(); // isMusicStop = true
             RestartText.gameObject.SetActive(true);
             RestartButton.gameObject.SetActive(true);
+            particle.Pause();
+            
 
         }
     }
@@ -139,6 +151,8 @@ public class Movement : MonoBehaviour
         isPaused = true;
         PauseMenu.gameObject.SetActive(true);
         music2.Pause(); // 음악 isMusicStop = true
+        particle.Pause();
+        
     }
 
     public void Resume()
@@ -148,10 +162,13 @@ public class Movement : MonoBehaviour
         //isResume = true;
         PauseMenu.gameObject.SetActive(false);
         music2.Play(); // 음악 isMusicStart = true
+        particle.Play();
+        
 
         if (isAlive == false && Started == false)
         {
             music2.Pause(); // 음악 isMusicStop = true
+            particle.gameObject.SetActive(false);
         }
     }
 
