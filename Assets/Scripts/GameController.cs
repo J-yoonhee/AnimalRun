@@ -33,11 +33,11 @@ public class GameController : MonoBehaviour
     {
         if (UIManager.isStage_1 == true)
         {
-            EndTrigger.transform.position = new Vector3(0.9f, 1.44f, 17.21f);
+            EndTrigger.transform.position = new Vector3(-346.83f, 1.44f, 489.81f);
         }
         if (UIManager.isStage_2 == true)
         {
-            EndTrigger.transform.position = new Vector3(-9.5f, 1.44f, 14.4f);
+            EndTrigger.transform.position = new Vector3(-352.8f, 1.44f, 371.7f);
         }
         if (UIManager.isStage_3 == true)
         {
